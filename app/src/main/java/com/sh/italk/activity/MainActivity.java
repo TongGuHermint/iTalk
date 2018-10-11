@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.RequestCallback;
 import com.netease.nimlib.sdk.auth.AuthService;
@@ -82,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
 					@Override
 					public void onSuccess(LoginInfo param) {
 						Toast.makeText(MainActivity.this,param.getAccount()+"success",Toast.LENGTH_SHORT).show();
-						startActivity(new Intent(MainActivity.this,SendMsgActivity.class));
+						startActivity(new Intent(MainActivity.this,ChatListActivity.class));
+
 					}
 
 					@Override

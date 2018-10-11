@@ -30,7 +30,17 @@ public class MyApplication extends Application {
 		super.onCreate();
 		// SDK初始化（启动后台服务，若已经存在用户登录信息， SDK 将完成自动登录）
 		NIMClient.init(this, loginInfo(), options());
+
+			// 在主进程中初始化UI组件，判断所属进程方法请参见demo源码。
+			initUiKit();
+
 		OkGo.getInstance().init(this);
+
+	}
+
+	private void initUiKit() {
+		// 初始化
+//		NimUIKit.init(this);
 	}
 
 	private SDKOptions options() {

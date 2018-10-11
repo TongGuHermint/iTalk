@@ -1,14 +1,22 @@
 package com.sh.italk.activity;
 
+import android.content.Context;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.RequestCallback;
@@ -27,13 +35,19 @@ public class SendMsgActivity extends AppCompatActivity {
 	private EditText edAccount;
 	private Button btnSend;
 	private TextView tvMsg;
+	private String account;
+	private LinearLayout p2pList;
+	private ScrollView scrollView;
 	private Observer<List<IMMessage>> incomingMessageObserver;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_send_msg);
+		account = getIntent().getStringExtra("account");
 		tvMsg = (TextView)findViewById(R.id.tv_msg);
+		p2pList = (LinearLayout)findViewById(R.id.p_chat);
+		scrollView = (ScrollView)findViewById(R.id.scrollView) ;
 		incomingMessageObserver =
 				new Observer<List<IMMessage>>() {
 					@Override
@@ -43,8 +57,8 @@ public class SendMsgActivity extends AppCompatActivity {
 						String msg =  messages.get(messages.size()-1).getContent();
 						Log.e("status",String.valueOf(status));
 						Log.e("msg",msg);
-						tvMsg.setText(msg);
-
+						addListView(msg);
+						downScroll();
 					}
 				};
 		NIMClient.getService(MsgServiceObserve.class)
@@ -52,13 +66,34 @@ public class SendMsgActivity extends AppCompatActivity {
 		edMsg = (EditText)findViewById(R.id.et_msg);
 		edAccount = (EditText)findViewById(R.id.et_account);
 		btnSend = (Button)findViewById(R.id.btn_send);
+		edMsg.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				downScroll();
+			}
+		});
 		btnSend.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				sendMsg();
+				if (!edMsg.getText().toString().isEmpty()){
+					sendMsg();
+				}
 			}
 		});
 
+	}
+
+	private void addListView(String msg) {
+		ViewGroup addListView = (ViewGroup) LayoutInflater.from(SendMsgActivity.this).inflate(R.layout.item_chatlist,null);
+		TextView tvMsg = (TextView)addListView.findViewById(R.id.tv_item_msg);
+		tvMsg.setText(msg);
+		p2pList.addView(addListView);
+	}
+	private void addRightListView(String msg) {
+		ViewGroup addListView = (ViewGroup) LayoutInflater.from(SendMsgActivity.this).inflate(R.layout.item_chat_right,null);
+		TextView tvMsg = (TextView)addListView.findViewById(R.id.tv_item_msg);
+		tvMsg.setText(msg);
+		p2pList.addView(addListView);
 	}
 
 	private void sendMsg() {
@@ -66,15 +101,30 @@ public class SendMsgActivity extends AppCompatActivity {
 		// 以单聊类型为例
 		SessionTypeEnum sessionType = SessionTypeEnum.P2P;
 		// 创建一个文本消息
-		IMMessage textMessage = MessageBuilder.createTextMessage(edAccount.getText().toString(), sessionType, edMsg.getText().toString());
-
-
+		IMMessage textMessage = MessageBuilder.createTextMessage(account, sessionType, edMsg.getText().toString());
 		// 发送给对方
 		NIMClient.getService(MsgService.class).sendMessage(textMessage, false)/*.setCallback(callback)*/;
+		addRightListView(edMsg.getText().toString());
+		cleanEd();//隐藏键盘,清空输入框,滚动到底部
+	}
 
-		// 监听消息状态变化
-//		NIMClient.getService(MsgServiceObserve.class).observeMsgStatus(statusObserver, true);
+	private void cleanEd() {
+//		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//		imm.hideSoftInputFromWindow(btnSend.getWindowToken(), 0); //强制隐藏键盘
+		edMsg.setText("");
+		downScroll();
 
+	}
+
+	//滚动到底部
+	private void downScroll() {
+		Handler handler = new Handler();
+		handler.post(new Runnable() {
+			@Override
+			public void run() {
+				scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+			}
+		});
 	}
 
 	@Override
@@ -83,4 +133,5 @@ public class SendMsgActivity extends AppCompatActivity {
 		NIMClient.getService(MsgServiceObserve.class)
 				.observeReceiveMessage(incomingMessageObserver, false);
 	}
+
 }

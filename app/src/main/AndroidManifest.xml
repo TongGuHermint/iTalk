@@ -103,7 +103,8 @@
             android:exported="false"
             android:process=":core" />
 
-        <activity android:name=".activity.SendMsgActivity"></activity>
+        <activity android:name=".activity.SendMsgActivity" />
+        <activity android:name=".activity.ChatListActivity"></activity>
     </application>
 
 </manifest>

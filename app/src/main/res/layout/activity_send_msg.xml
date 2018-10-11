@@ -6,21 +6,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.sh.italk.activity.SendMsgActivity">
-    <TextView
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_msg"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:id="@+id/p_chat"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginBottom="2dp"
+                android:background="#ece6e6"
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+                <TextView
+                    android:textSize="16dp"
+                    android:text="fdsfsdg"
+                    android:layout_marginLeft="12dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_msg"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
     <EditText
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et_account"/>
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/et_msg"/>
-    <Button
-        android:text="send"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_send"/>
+        android:layout_height="48dp">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_msg"/>
+        <Button
+            android:text="send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_send"/>
+    </LinearLayout>
+
 </LinearLayout>
