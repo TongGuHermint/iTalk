@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\tooltip_enter.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\tooltip_enter.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\tooltip_exit.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\tooltip_exit.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\anim\\abc_slide_in_top.xml"
+    }
+]

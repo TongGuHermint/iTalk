@@ -39,16 +39,6 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		mApi = new Api(handler,MainActivity.this);
 		mGson = new Gson();
-		rxPermissions = new RxPermissions(MainActivity.this);
-		rxPermissions.request(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE)
-				.subscribe(new io.reactivex.functions.Consumer<Boolean>() {
-					@Override
-					public void accept(Boolean aBoolean) throws Exception {
-						if (!aBoolean){
-							Toast.makeText(MainActivity.this,"为保证应用正常运行,请在权限管理开启必要权限!",Toast.LENGTH_SHORT).show();
-						}
-					}
-				});
 		edUserName = (EditText)findViewById(R.id.userName);
 		edUserPwd = (EditText)findViewById(R.id.userPassword);
 		btnLogin = (Button)findViewById(R.id.btn_Login);
@@ -59,49 +49,13 @@ public class MainActivity extends AppCompatActivity {
 				doRegister();
 			}
 		});
-		btnLogin.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				updateToken();
-			}
-		});
-
 	}
 
-	private void updateToken() {
-		mApi.updateToken(REQUEST_WHAT_UPDATETOKEN,edUserName.getText().toString());
-	}
 
 	private void doRegister() {
 		mApi.userRegist(REQUEST_WHAT_USERREGIST,edUserName.getText().toString());
 	}
 
-	public void doLogin(String token) {
-		LoginInfo info = new LoginInfo(edUserName.getText().toString(), token); // config...
-		RequestCallback<LoginInfo> callback =
-				new RequestCallback<LoginInfo>() {
-					@Override
-					public void onSuccess(LoginInfo param) {
-						Toast.makeText(MainActivity.this,param.getAccount()+"success",Toast.LENGTH_SHORT).show();
-						startActivity(new Intent(MainActivity.this,ChatListActivity.class));
-
-					}
-
-					@Override
-					public void onFailed(int code) {
-						Toast.makeText(MainActivity.this,String.valueOf(code),Toast.LENGTH_SHORT).show();
-					}
-
-					@Override
-					public void onException(Throwable exception) {
-
-					}
-					// 可以在此保存LoginInfo到本地，下次启动APP做自动登录用
-				};
-
-				NIMClient.getService(AuthService.class).login(info)
-				.setCallback(callback);
-	}
 
 	Handler handler = new Handler(){
 		@Override
@@ -115,12 +69,6 @@ public class MainActivity extends AppCompatActivity {
 							Toast.makeText(MainActivity.this,registerDTO.getDesc(),Toast.LENGTH_SHORT).show();
 						}else if (registerDTO.getCode().equals("200")){
 							Toast.makeText(MainActivity.this,"register success",Toast.LENGTH_SHORT).show();
-						}
-						break;
-					case REQUEST_WHAT_UPDATETOKEN:
-						UpdateTokenDTO updateTokenDTO = mGson.fromJson(msg.obj.toString(),UpdateTokenDTO.class);
-						if (updateTokenDTO.getCode().equals("200")){
-							doLogin(updateTokenDTO.getInfo().getToken());
 						}
 						break;
 				}

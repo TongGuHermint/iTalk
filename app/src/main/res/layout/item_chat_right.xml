@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="8dp"
         android:id="@+id/item_list"
-        android:background="#ece6e6"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
-        <TextView
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <com.github.library.bubbleview.BubbleTextView
+            android:padding="10dp"
+            android:textColor="#333333"
+            android:text=""
             android:textSize="16dp"
             android:layout_marginRight="12dp"
             android:layout_gravity="center"
-            android:gravity="right"
-            android:layout_width="match_parent"
+            android:gravity="center|start"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_item_msg"/>
+            android:maxWidth="250dp"
+            android:id="@+id/tv_item_msg"
+            app:arrowWidth="10dp"
+            app:angle="8dp"
+            app:arrowHeight="10dp"
+            app:arrowPosition="14dp"
+            app:arrowLocation="right"
+            app:arrowCenter="true"
+            app:bubbleColor="#efd550"/>
+        <ImageView
+            android:layout_marginRight="12dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/img_item"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="14dp" />
     </LinearLayout>
 </LinearLayout>

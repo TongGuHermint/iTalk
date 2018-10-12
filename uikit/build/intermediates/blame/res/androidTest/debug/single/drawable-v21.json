@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\85f1844807ba8c427cad06ce6e4266e6\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\dql\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\c7e3f3385c4e1eb42bc00b44adbd0260\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\nim_touch_bg.xml",
+        "source": "G:\\shihao-workspace\\iTalk\\uikit\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\nim_touch_bg.xml"
+    }
+]

@@ -11,12 +11,15 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.TimeUtils;
+import com.github.library.bubbleview.BubbleTextView;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.RequestCallback;
@@ -28,6 +31,8 @@ import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.sh.italk.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class SendMsgActivity extends AppCompatActivity {
@@ -55,9 +60,12 @@ public class SendMsgActivity extends AppCompatActivity {
 						// 处理新收到的消息，为了上传处理方便，SDK 保证参数 messages 全部来自同一个聊天对象。
 						int status = messages.get(messages.size()-1).getStatus().getValue();
 						String msg =  messages.get(messages.size()-1).getContent();
+						long time = messages.get(messages.size()-1).getTime()/1000;
+						String second = timeMinute(String.valueOf(time));
 						Log.e("status",String.valueOf(status));
 						Log.e("msg",msg);
-						addListView(msg);
+						Log.e("time",second);
+						addListView(msg,second);
 						downScroll();
 					}
 				};
@@ -82,17 +90,34 @@ public class SendMsgActivity extends AppCompatActivity {
 		});
 
 	}
+	public static String timeMinute(String time) {
+		SimpleDateFormat sdr = new SimpleDateFormat("HH:mm:ss");
+		@SuppressWarnings("unused")
+		long lcc = Long.valueOf(time);
+		int i = Integer.parseInt(time);
+		String times = sdr.format(new Date(i * 1000L));
+		return times;
+	}
 
-	private void addListView(String msg) {
+
+	private void addListView(String msg,String time) {
 		ViewGroup addListView = (ViewGroup) LayoutInflater.from(SendMsgActivity.this).inflate(R.layout.item_chatlist,null);
-		TextView tvMsg = (TextView)addListView.findViewById(R.id.tv_item_msg);
+		BubbleTextView tvMsg = (BubbleTextView)addListView.findViewById(R.id.tv_item_msg);
+		TextView tvTime = (TextView)addListView.findViewById(R.id.tv_item_time);
+		ImageView imageView = (ImageView)addListView.findViewById(R.id.img_item);
+		imageView.setImageResource(R.drawable.wz);
 		tvMsg.setText(msg);
+		tvTime.setText(time);
 		p2pList.addView(addListView);
 	}
-	private void addRightListView(String msg) {
+	private void addRightListView(String msg,String time) {
 		ViewGroup addListView = (ViewGroup) LayoutInflater.from(SendMsgActivity.this).inflate(R.layout.item_chat_right,null);
-		TextView tvMsg = (TextView)addListView.findViewById(R.id.tv_item_msg);
+		BubbleTextView tvMsg = (BubbleTextView)addListView.findViewById(R.id.tv_item_msg);
+		TextView tvTime = (TextView)addListView.findViewById(R.id.tv_item_time);
+		ImageView imageView = (ImageView)addListView.findViewById(R.id.img_item);
+		imageView.setImageResource(R.drawable.wz);
 		tvMsg.setText(msg);
+		tvTime.setText(time);
 		p2pList.addView(addListView);
 	}
 
@@ -104,7 +129,9 @@ public class SendMsgActivity extends AppCompatActivity {
 		IMMessage textMessage = MessageBuilder.createTextMessage(account, sessionType, edMsg.getText().toString());
 		// 发送给对方
 		NIMClient.getService(MsgService.class).sendMessage(textMessage, false)/*.setCallback(callback)*/;
-		addRightListView(edMsg.getText().toString());
+		String CurTime = String.valueOf(TimeUtils.getNowMills()/1000);
+
+		addRightListView(edMsg.getText().toString(),timeMinute(CurTime));
 		cleanEd();//隐藏键盘,清空输入框,滚动到底部
 	}
 
