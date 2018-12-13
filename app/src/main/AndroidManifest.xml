@@ -45,8 +45,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
-        </activity>
+        <activity android:name=".activity.MainActivity" />
         <!--
        APP key, 可以在这里设置，也可以在 SDKOptions 中提供。
        如果 SDKOptions 中提供了，取 SDKOptions 中的值。
@@ -99,13 +98,16 @@
 
         <activity android:name=".activity.SendMsgActivity" />
         <activity android:name=".activity.ChatListActivity" />
-        <activity android:name=".activity.SettingActivity"></activity>
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.FaceAuthActivity">
         </activity>
     </application>
 

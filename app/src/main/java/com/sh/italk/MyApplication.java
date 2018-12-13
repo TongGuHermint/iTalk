@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.text.TextUtils;
 
+import com.alipay.mobile.security.zim.api.ZIMFacade;
 import com.lzy.okgo.OkGo;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.SDKOptions;
@@ -37,6 +38,7 @@ public class MyApplication extends Application {
 		OkGo.getInstance().init(this);
 
 	}
+
 
 	private void initUiKit() {
 		// 初始化

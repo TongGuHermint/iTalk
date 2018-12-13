@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.sh.italk.activity.SettingActivity">
 <LinearLayout
     android:layout_width="match_parent"
@@ -22,4 +23,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
+    <TextView
+        android:fontFamily="@font/din_bold"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gdfsgdfgdfgfd"/>
+    <TextView
+        android:fontFamily="@font/din_bold"
+        android:layout_gravity="center"
+        android:text="5000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#333333"
+        android:textSize="60dp"
+        android:includeFontPadding="false" />
+    <TextView
+        android:fontFamily="@font/din_medium"
+        android:layout_gravity="center"
+        android:text="5000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#333333"
+        android:textSize="60dp"
+        android:includeFontPadding="false" />
+    <TextView
+        android:fontFamily="@font/pingfangsc"
+        android:layout_gravity="center"
+        android:text="傻逼"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#333333"
+        android:textSize="60dp"
+        android:includeFontPadding="false" />
+    <TextView
+        android:layout_gravity="center"
+        android:text="傻逼"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#333333"
+        android:textSize="60dp"
+        android:includeFontPadding="false" />
 </LinearLayout>
