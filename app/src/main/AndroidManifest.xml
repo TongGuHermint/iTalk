@@ -99,7 +99,9 @@
         <activity android:name=".activity.SendMsgActivity" />
         <activity android:name=".activity.ChatListActivity" />
         <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.LoginActivity">
+
+        </activity>
         <activity android:name=".activity.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -65,7 +65,6 @@ public class HttpRequest {
         Log.e("addParams",addParams);
         String CheckSum = EncryptUtils.encryptSHA1ToString(addParams).toLowerCase();
         OkGo.<String>post(url)
-
                 .headers("AppKey",AppKey)//开发者平台分配的appkey
                 .headers("Nonce",Nonce)//随机数（最大长度128个字符）
                 .headers("CurTime",CurTime)//当前UTC时间戳，从1970年1月1日0点0 分0 秒开始到现在的秒数(String)
